@@ -4,7 +4,7 @@ public class BulletShooter : MonoBehaviour
 {
     public GameObject bulletPrefab; 
     public Transform firePoint;    
-    public float bulletSpeed = 20f;
+    public float bulletSpeed = 10f;
 
     void Update()
     {
@@ -23,7 +23,8 @@ public class BulletShooter : MonoBehaviour
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            rb.velocity = firePoint.forward * bulletSpeed;
+          rb.AddForce(firePoint.forward * bulletSpeed, ForceMode.VelocityChange);
+
         }
     }
 }

@@ -6,6 +6,11 @@ public class CameraMovement: MonoBehaviour
     public Transform playerBody;
 
     float xRotation = 0f;
+    void Start()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 
     void Update()
     {
@@ -17,5 +22,6 @@ public class CameraMovement: MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
+       
     }
 }

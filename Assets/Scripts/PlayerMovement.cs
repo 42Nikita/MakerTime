@@ -10,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
     private float gravity = 5f;
     private Rigidbody rb;
     private bool isGrounded = true;
+    public float walkSpeed = 5f;
+    public float sprintSpeed = 10f;
+    private float currentSpeed;
     
     
     
@@ -39,10 +42,18 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
-        } if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             transform.Translate(Vector3.up * jumpForce * Time.deltaTime);
             isGrounded = true;
+        }
+        float Speed = walkSpeed;
+        
+        
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            Speed = sprintSpeed;
         }
        
        
