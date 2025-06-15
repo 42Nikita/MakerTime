@@ -1513,6 +1513,7 @@ GameObject:
   - component: {fileID: 6910031530243299686}
   - component: {fileID: 6372563157312601731}
   - component: {fileID: 6372563157312601728}
+  - component: {fileID: 8390776935760196284}
   - component: {fileID: 6372563157312601730}
   - component: {fileID: 1824346590973458844}
   m_Layer: 0
@@ -1577,6 +1578,21 @@ CapsuleCollider:
   m_Height: 1.5616188
   m_Direction: 1
   m_Center: {x: 0.11159897, y: 0.5855961, z: 0}
+--- !u!114 &8390776935760196284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6101970384806396892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da5af577725d2d74fa51e4ae68084ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthText: {fileID: 0}
+  damage: 10
+  health: 100
 --- !u!114 &6372563157312601730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1589,6 +1605,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29dc53b934190244ea7ebef6539ee185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkSpeed: 5
+  sprintSpeed: 10
 --- !u!114 &1824346590973458844
 MonoBehaviour:
   m_ObjectHideFlags: 0
