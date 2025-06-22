@@ -1,38 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI healthText;
-    public int damage = 10;
-    public int health = 100;
-    // Start is called before the first frame update
+    public TextMeshProUGUI healthText;
+   
+    public int maxHealth = 100;
+    public int currentHealth;
+
+    private void Start()
+    {
+        currentHealth = maxHealth;
+        UpdateHealthUI();
+    }
+
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
          UpdateHealthUI();
         
     }
-    public void Die()
+    
+    private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("ти падох");
-        
-    }
-    void OnTrigerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            TakeDamage(damage);
+            TakeDamage(10);
         }
     }
-    private void UpdateHealthUI()
+
+    private void Die()
     {
-        healthText.text = "Health: " + health.ToString(); 
+        Debug.Log("you die!");
+        
     }
 
-    // Update is called once per frame
-    
+    private void UpdateHealthUI()
+    {
+        if (healthText != null)
+            healthText.text = "Health: " + currentHealth;
+    }
 }
